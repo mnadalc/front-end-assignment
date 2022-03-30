@@ -2,9 +2,22 @@
 
 This project allows Hurtigruten to asses potential frontend candidates with real, working code.
 
-You will find the exercises in the [exercises.md](./exercises.md) file.
+You have two options.
 
-We don't expect you to use more than **5 hours** on this. If you're not finished after the time limit that's fine, just submit what you've got.
+### Send in your own project
+
+If you have an existing pet project or something that you are proud of and using the following technologies, send it to us.
+
+- One of the modern JavaScript frameworks
+- TypeScript
+- CSS (preferably not a library like Bootstrap)
+- Tests
+
+### Choose our assignment
+
+Spend only **2-3 hours** on this assignment, don't worry if you can't finish it.
+
+You will find the exercises in the [exercises.md](./exercises.md) file.
 
 We have bootstrapped this assignment with [Create React App](https://github.com/facebook/create-react-app) to give you the initial setup.
 
