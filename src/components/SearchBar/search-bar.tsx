@@ -6,13 +6,20 @@ import { ReactComponent as Loupe } from '../../assets/magnifying-glass.svg';
 
 export type SearchBarProps = {
   label?: string;
+  handleClear: () => void;
+  handleSearch: (value: string) => {};
 };
 
-export const SearchBar: React.VFC<SearchBarProps> = ({ label = '' }) => {
+export const SearchBar: React.VFC<SearchBarProps> = ({
+  label = '',
+  handleSearch,
+  handleClear
+}) => {
   const [value, setValue] = React.useState<string>('');
 
   const handleOnChange = (text: string) => {
     setValue(text);
+    text ? handleSearch(text) : handleClear();
   };
 
   return (

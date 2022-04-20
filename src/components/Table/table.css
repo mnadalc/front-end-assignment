@@ -1,0 +1,26 @@
+.ships-table {
+  margin-top: 2rem;
+  width: 100%;
+  border-collapse: collapse;
+}
+
+tr {
+  border-bottom: 1px solid #ccc;
+}
+
+tr > th,
+tr > td {
+  text-align: left;
+  padding: 0.5rem;
+}
+
+tbody > tr:last-child {
+  border-bottom: none;
+}
+
+@media screen and (max-width: 480px) {
+  .table-scroller {
+    overflow-x: auto;
+    width: 320px;
+  }
+}

@@ -2,13 +2,21 @@ import { screen, render } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
 import { SearchBar, SearchBarProps } from './search-bar';
 
+const handleSearchMock = jest.fn();
+const handleClearMock = jest.fn();
+
+const componentProps = {
+  handleSearch: handleSearchMock,
+  handleClear: handleClearMock
+};
+
 const renderSearchBar = (props?: SearchBarProps) => {
-  render(<SearchBar {...props} />);
+  render(<SearchBar {...componentProps} {...props} />);
 };
 
 describe('<SearchBar />', () => {
   it('should render with label', () => {
-    renderSearchBar({ label: 'Search Field' });
+    renderSearchBar({ ...componentProps, label: 'Search Field' });
     const input = screen.getByLabelText(/search field/i);
 
     expect(input).toBeInTheDocument();
