@@ -33,6 +33,11 @@ export const SearchBar: React.VFC<SearchBarProps> = ({
           aria-label="Search bar"
           value={value}
           onChange={(e) => handleOnChange(e.target.value)}
+          onKeyDown={(e) => {
+            if (e.key === 'Enter') {
+              handleSearch(value);
+            }
+          }}
         />
         <div className="button-wrapper">
           {value && (

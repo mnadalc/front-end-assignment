@@ -46,4 +46,14 @@ describe('<SearchBar />', () => {
     const clear = screen.queryByRole('button', { name: 'Clear' });
     expect(clear).not.toBeInTheDocument();
   });
+
+  it('should call handleSearch when Enter key is pressed', async () => {
+    renderSearchBar();
+    const input = screen.getByLabelText(/search bar/i);
+
+    userEvent.type(input, 'Hello{enter}');
+
+    expect(handleSearchMock).toHaveBeenCalled();
+    expect(handleSearchMock).toHaveBeenCalledWith('Hello');
+  });
 });
