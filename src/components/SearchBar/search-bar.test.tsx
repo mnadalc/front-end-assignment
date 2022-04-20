@@ -28,5 +28,14 @@ describe('<SearchBar />', () => {
 
     const clear = await screen.findByRole('button', { name: 'Clear' });
     expect(clear).toBeInTheDocument();
+
+    userEvent.click(clear);
+    expect(input).toHaveValue('');
+  });
+
+  it('clear button should not be visible without typing text', () => {
+    renderSearchBar();
+    const clear = screen.queryByRole('button', { name: 'Clear' });
+    expect(clear).not.toBeInTheDocument();
   });
 });

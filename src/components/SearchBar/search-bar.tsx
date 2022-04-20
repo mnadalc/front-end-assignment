@@ -9,6 +9,12 @@ export type SearchBarProps = {
 };
 
 export const SearchBar: React.VFC<SearchBarProps> = ({ label = '' }) => {
+  const [value, setValue] = React.useState<string>('');
+
+  const handleOnChange = (text: string) => {
+    setValue(text);
+  };
+
   return (
     <div className="container">
       {label && <label htmlFor="searchbar">{label}</label>}
@@ -18,15 +24,22 @@ export const SearchBar: React.VFC<SearchBarProps> = ({ label = '' }) => {
           type="text"
           placeholder="Search"
           aria-label="Search bar"
-          defaultValue={''}
+          value={value}
+          onChange={(e) => handleOnChange(e.target.value)}
         />
         <div className="button-wrapper">
-          <button className="button-clear">
-            <Cross aria-hidden="true" role="img" />
-            <span className="visually-hidden">Clear</span>
-          </button>
-          <button className={`button-search`}>
-            <Loupe aria-hidden="true" role="img" />
+          {value && (
+            <button className="button-clear" onClick={() => setValue('')}>
+              <Cross aria-hidden="true" role="img" />
+              <span className="visually-hidden">Clear</span>
+            </button>
+          )}
+          <button className={`button-search ${value && 'button-focused'}`}>
+            <Loupe
+              className={`${value && 'loupe-active'}`}
+              aria-hidden="true"
+              role="img"
+            />
             <span className="visually-hidden">Search</span>
           </button>
         </div>
