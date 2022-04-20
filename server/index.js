@@ -7,6 +7,17 @@ server.listen(port, () => {
   console.log(`Server listening at ${port}`);
 });
 
+server.use((_req, res, next) => {
+  res.setHeader('Access-Control-Allow-Origin', 'http://localhost:3000');
+  res.setHeader('Access-Control-Allow-Methods', 'GET');
+  res.setHeader(
+    'Access-Control-Allow-Headers',
+    'X-Requested-With,content-type'
+  );
+
+  next();
+});
+
 server.get(['/api/ships', '/api/ships/:query'], (req, res) => {
   const query = req.params.query;
 
