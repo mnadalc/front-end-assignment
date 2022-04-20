@@ -2,8 +2,8 @@ import * as React from 'react';
 import './search-bar.css';
 import debounce from 'lodash.debounce';
 
-import { ReactComponent as Cross } from '../../assets/cross.svg';
-import { ReactComponent as Loupe } from '../../assets/magnifying-glass.svg';
+import cross from '../../assets/cross.svg';
+import loupe from '../../assets/magnifying-glass.svg';
 
 export type SearchBarProps = {
   label?: string;
@@ -53,7 +53,7 @@ export const SearchBar: React.VFC<SearchBarProps> = ({
         <div className="button-wrapper">
           {value && (
             <button className="button-clear" onClick={() => handleOnChange('')}>
-              <Cross aria-hidden="true" role="img" />
+              <img src={cross} alt="Clear field" aria-hidden="true" />
               <span className="visually-hidden">Clear</span>
             </button>
           )}
@@ -61,10 +61,11 @@ export const SearchBar: React.VFC<SearchBarProps> = ({
             className={`button-search ${value && 'button-focused'}`}
             onClick={() => handleSearch(value)}
           >
-            <Loupe
-              className={`${value && 'loupe-active'}`}
+            <img
+              src={loupe}
+              alt="Search field"
               aria-hidden="true"
-              role="img"
+              className={`${value ? 'loupe-active' : ''}`}
             />
             <span className="visually-hidden">Search</span>
           </button>

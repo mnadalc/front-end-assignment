@@ -46,7 +46,7 @@ button {
 }
 
 .loupe-active {
-  color: white;
+  filter: invert(1);
 }
 
 @media only screen and (max-width: 480px) {
