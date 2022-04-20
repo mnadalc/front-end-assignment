@@ -39,6 +39,7 @@ describe('<SearchBar />', () => {
 
     userEvent.click(clear);
     expect(input).toHaveValue('');
+    expect(handleClearMock).toHaveBeenCalled();
   });
 
   it('clear button should not be visible without typing text', () => {

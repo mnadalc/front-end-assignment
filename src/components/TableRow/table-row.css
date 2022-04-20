@@ -6,6 +6,10 @@
   transform: rotate(180deg);
 }
 
+.no-border-bottom {
+  border-bottom: none;
+}
+
 .ship-info-header-row {
   display: inherit;
 }

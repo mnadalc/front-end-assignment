@@ -13,7 +13,7 @@ export const TableRow: React.VFC<{ ship: Ship }> = ({ ship }) => {
 
   return (
     <>
-      <tr>
+      <tr className={`${isShown ? 'no-border-bottom' : ''}`}>
         <td>
           <DownArrow
             aria-hidden="true"

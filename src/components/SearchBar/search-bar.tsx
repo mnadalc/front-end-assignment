@@ -52,12 +52,15 @@ export const SearchBar: React.VFC<SearchBarProps> = ({
         />
         <div className="button-wrapper">
           {value && (
-            <button className="button-clear" onClick={() => setValue('')}>
+            <button className="button-clear" onClick={() => handleOnChange('')}>
               <Cross aria-hidden="true" role="img" />
               <span className="visually-hidden">Clear</span>
             </button>
           )}
-          <button className={`button-search ${value && 'button-focused'}`}>
+          <button
+            className={`button-search ${value && 'button-focused'}`}
+            onClick={() => handleSearch(value)}
+          >
             <Loupe
               className={`${value && 'loupe-active'}`}
               aria-hidden="true"
