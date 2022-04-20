@@ -1,11 +1,14 @@
-import React from 'react';
+import * as React from 'react';
 
-function App() {
+import { SearchBar } from './components/SearchBar/search-bar';
+
+const App = () => {
   return (
-    <p>
-      Edit <code>src/App.tsx</code> and save to reload.
-    </p>
+    <>
+      <h3>Search Flow</h3>
+      <SearchBar />
+    </>
   );
-}
+};
 
 export default App;
