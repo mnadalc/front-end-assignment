@@ -1,5 +1,6 @@
 import * as React from 'react';
 import './search-bar.css';
+import debounce from 'lodash.debounce';
 
 import { ReactComponent as Cross } from '../../assets/cross.svg';
 import { ReactComponent as Loupe } from '../../assets/magnifying-glass.svg';
@@ -17,9 +18,19 @@ export const SearchBar: React.VFC<SearchBarProps> = ({
 }) => {
   const [value, setValue] = React.useState<string>('');
 
+  const debouncedHandleSearch = React.useMemo(
+    () => debounce(handleSearch, 1500),
+    [handleSearch]
+  );
+
+  React.useEffect(
+    () => () => debouncedHandleSearch.cancel(),
+    [debouncedHandleSearch]
+  );
+
   const handleOnChange = (text: string) => {
     setValue(text);
-    text ? handleSearch(text) : handleClear();
+    text ? debouncedHandleSearch(text) : handleClear();
   };
 
   return (

@@ -54,6 +54,7 @@ describe('<SearchBar />', () => {
     userEvent.type(input, 'Hello{enter}');
 
     expect(handleSearchMock).toHaveBeenCalled();
+    expect(handleSearchMock).toHaveBeenCalledTimes(1);
     expect(handleSearchMock).toHaveBeenCalledWith('Hello');
   });
 });
